@@ -22,7 +22,7 @@ This plugin was inspired by the old [homebridge-people](https://github.com/PeteL
 
 I created this plugin due to the lack of updated, supported and maintained plugin to check devices on your current network.
 
-With this plugin you can easiliy confgiure devices to monitor based on their mac or ip address.
+With this plugin you can easily configure devices to monitor based on their mac or ip address.
 
 
 # Installation
