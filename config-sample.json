@@ -1,14 +1,18 @@
 {
-    "accessories": [
+    "platforms": [
         {
-            "accessory": "networkPresence",
-            "name": "my iPhone",
-            "mac": "cc:29:f5:3b:a2:f2"
-        },
-        {
-            "accessory": "networkPresence",
-            "name": "my iPad",
-            "ip": "10.0.0.142"
+            "platform": "networkPresence",
+            "devices": [ 
+                {
+                    "name": "my iPhone",
+                    "mac": "cc:29:f5:3b:a2:f2"
+                },
+                {
+                    "name": "my iPad",
+                    "ip": "10.0.0.142"
+                }
+
+            ]
         }
     ]
 }

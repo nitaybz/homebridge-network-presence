@@ -1,94 +1,43 @@
-const { Accessory } = require('homebridge-plugin-helpers');
-const { NetworkObserver } = require('./network');
+const Network = require('./lib/network')
+const PLUGIN_NAME = 'homebridge-network-presence'
+const PLATFORM_NAME = 'networkPresence'
+module.exports = (api) => {
+	api.registerPlatform(PLUGIN_NAME, PLATFORM_NAME, networkPresence)
+}
 
-module.exports = function (homebridge) {
-	networkPresenceAccessory.register(homebridge);
-};
+class networkPresence {
 
-class networkPresenceAccessory extends Accessory {
+	constructor(log, config, api) {
+		this.api = api
+		this.log = log
 
-	static get pluginName() {
-		return "homebridge-network-presence";
-	}
-	
-	static get accessoryName() {
-		return "networkPresence";
-	}
+		this.accessories = []
+		this.devices = []
+		this.PLUGIN_NAME = PLUGIN_NAME
+		this.PLATFORM_NAME = PLATFORM_NAME
+		this.name = config.name || PLATFORM_NAME
+		this.devicesConfig = config.devices || []
+		this.debug = config.debug || false
 
-	constructor(homebridge, log, config, api) {
-		super();
-		// Save args
-		this.log = log;
-		this.config = config;
-		this.api = api;
-		// Setup Homebridge
-		this.Service = homebridge.hap.Service;
-		this.Characteristic = homebridge.hap.Characteristic;
-		// Setup Service
-		this.isDetected = 0;
-		this.service = new this.Service.OccupancySensor(this.name);
-		this.setupCharacteristics();
-		this.setupDeviceObserver();
-	}
+		
+		// define debug method to output debug logs when enabled in the config
+		this.log.easyDebug = (...content) => {
+			if (this.debug) {
+				this.log(content.reduce((previous, current) => {
+					return previous + ' ' + current
+				}))
+			} else
+				this.log.debug(content.reduce((previous, current) => {
+					return previous + ' ' + current
+				}))
+		}
 
-	get name() {
-		return this.config.name;
-	}
+		this.api.on('didFinishLaunching', Network.init.bind(this))
 
-	get manufacturer() {
-		return "network-presence";
 	}
 
-	get model() {
-		return "arp-network-presence";
+	configureAccessory(accessory) {
+		this.log.easyDebug(`Found Cached Accessory: ${accessory.displayName} (${accessory.context.serial}) `)
+		this.accessories.push(accessory)
 	}
-
-	get serialNumber() {
-		return this.config.mac || this.config.ip;
-	}
-
-	setupCharacteristics() {
-		const { Characteristic } = this;
-		this.service
-			.getCharacteristic(Characteristic.OccupancyDetected)
-			.on('get', (callback) => callback(null, this.isDetected));
-	}
-
-    setupDeviceObserver() {
-        const { net } = this;
-				const { mac, ip } = this.config;
-				if (mac) {
-					net.on(`connected:mac:${mac.toLowerCase()}`, (device) =>
-							this.setDetected(1)
-					);
-					net.on(`disconnected:mac:${mac}`, (device) =>
-							this.setDetected(0)
-					);
-				} if (ip) {
-					net.on(`connected:ip:${ip}`, (device) =>
-							this.setDetected(1)
-					);
-					net.on(`disconnected:ip:${ip}`, (device) =>
-							this.setDetected(0)
-					);
-				}
-    }
-
-    static get net() {
-        if (!this._net) {
-            this._net = new NetworkObserver();
-        }
-        return this._net;
-    }
-
-    get net() {
-        return this.constructor.net;
-    }
-
-    setDetected(isDetected, device) {
-				this.log(`${this.name} ${isDetected ? 'connected to' : 'disconnected from'} the network! (mac: ${device.mac} | ip:${device.ip})`)
-        this.isDetected = isDetected;
-        this.service.updateValue(isDetected);
-    }
-
 }
