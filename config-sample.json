@@ -6,7 +6,8 @@
             "devices": [ 
                 {
                     "name": "my iPhone",
-                    "mac": "cc:29:f5:3b:a2:f2"
+                    "mac": "cc:29:f5:3b:a2:f2",
+                    "threshold": 5
                 },
                 {
                     "name": "my iPad",

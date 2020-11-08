@@ -1,6 +1,6 @@
 {
   "name": "homebridge-network-presence",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Homebridge plugin that provides occupancy sensor for devices presence in your network",
   "main": "index.js",
   "keywords": [
