@@ -1,0 +1,32 @@
+{
+  "name": "homebridge-network-presence",
+  "version": "0.0.1",
+  "description": "Homebridge plugin that provides occupancy sensor for devices presence in your network",
+  "main": "index.js",
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "homepage": "https://github.com/nitaybz/homebridge-network-presence#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitaybz/homebridge-network-presence.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nitaybz/homebridge-network-presence/issues"
+  },
+  "engines": {
+    "node": ">=0.12.0",
+    "homebridge": ">=0.2.0"
+  },
+  "dependencies": {
+    "arpscan": "^1.0.2",
+    "bluebird": "^3.7.2",
+    "homebridge-plugin-helpers": ">=0.1.0",
+    "ping": "^0.1.10"
+  },
+  "scripts": {
+    "start": "homebridge --plugin-path ./",
+    "debug": "DEBUG=* homebridge --debug --plugin-path ./"
+  }
+}

@@ -1,0 +1,14 @@
+{
+    "accessories": [
+        {
+            "accessory": "networkPresence",
+            "name": "my iPhone",
+            "mac": "cc:29:f5:3b:a2:f2"
+        },
+        {
+            "accessory": "networkPresence",
+            "name": "my iPad",
+            "ip": "10.0.0.142"
+        }
+    ]
+}
