@@ -1,11 +1,11 @@
 const Network = require('./lib/network')
 const PLUGIN_NAME = 'homebridge-network-presence'
-const PLATFORM_NAME = 'networkPresence'
+const PLATFORM_NAME = 'NetworkPresence'
 module.exports = (api) => {
-	api.registerPlatform(PLUGIN_NAME, PLATFORM_NAME, networkPresence)
+	api.registerPlatform(PLUGIN_NAME, PLATFORM_NAME, NetworkPresence)
 }
 
-class networkPresence {
+class NetworkPresence {
 
 	constructor(log, config, api) {
 		this.api = api
@@ -16,6 +16,7 @@ class networkPresence {
 		this.PLUGIN_NAME = PLUGIN_NAME
 		this.PLATFORM_NAME = PLATFORM_NAME
 		this.name = config.name || PLATFORM_NAME
+		this.threshold = !config.threshold && config.threshold !== 0 ? 15 : config.threshold
 		this.devicesConfig = config.devices || []
 		this.debug = config.debug || false
 
