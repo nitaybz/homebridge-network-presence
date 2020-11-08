@@ -1,7 +1,7 @@
 {
     "platforms": [
         {
-            "platform": "networkPresence",
+            "platform": "NetworkPresence",
             "threshold": 15,
             "devices": [ 
                 {

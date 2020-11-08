@@ -1,0 +1,93 @@
+{
+  "pluginAlias": "NetworkPresence",
+  "pluginType": "platform",
+  "singular": true,
+  "headerDisplay": "Homebridge plugin that provides occupancy sensors for devices presence in your network",
+  "footerDisplay": "Created by @nitaybz",
+  "schema": {
+      "type": "object",
+      "properties": {
+          "debug": {
+              "title": "Enable Debug Logs",
+              "description": "When checked, the plugin will produce extra logs for debugging purposes",
+              "type": "boolean",
+              "default": false,
+              "required": false
+          },
+          "threshold": {
+              "title": "Disconnect Threshold (minutes)",
+              "description": "Time in minutes to wait before updating 'disconnected' status",
+              "type": "integer",
+              "required": true,
+              "default": 15,
+              "minimum": 0,
+              "maximum": 60
+          },
+          "devices": {
+              "type": "array",
+              "items": {
+                "title": "Network Devices",
+                "type": "object",
+                "properties": {
+
+                  "name": {
+                      "title": "Name of the Accessory",
+                      "type": "string",
+                      "required": true
+                  },
+                  "mac": {
+                      "title": "Device Mac Address",
+                      "type": "string",
+                      "pattern": "^([A-Fa-f0-9]{2}:){5}[A-Fa-f0-9]{2}$"
+                  },
+                  "ip": {
+                      "title": "Device IP Address",
+                      "type": "string"
+                  },
+                  "threshold": {
+                      "title": "Disconnect Threshold (minutes)",
+                      "description": "Time in minutes to wait before updating 'disconnected' status",
+                      "type": "integer",
+                      "default": 15,
+                      "minimum": 0,
+                      "maximum": 60
+                  }
+                },
+                "oneOf": [
+                    {
+                        "required": [
+                            "mac"
+                        ]
+                    },
+                    {
+                        "required": [
+                            "ip"
+                        ]
+                    }
+                  ]
+              }
+          }
+      }
+  },
+    "layout": [
+      {
+        "key": "threshold"
+      },
+      {
+        "key": "devices",
+        "type": "array",
+        "title": "Network Devices",
+        "orderable": true,
+        "buttonText": "Add Device",
+        "items": [
+          "devices[].name",
+          "devices[].mac",
+          "devices[].ip",
+          "devices[].threshold"
+        ]
+      },
+      {
+        "key": "debug"
+      }
+    ]
+}

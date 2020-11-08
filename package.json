@@ -1,7 +1,7 @@
 {
   "name": "homebridge-network-presence",
-  "version": "0.0.6",
-  "description": "Homebridge plugin that provides occupancy sensor for devices presence in your network",
+  "version": "1.0.0",
+  "description": "Homebridge plugin that provides occupancy sensors for devices presence in your network",
   "main": "index.js",
   "keywords": [
     "homebridge-plugin"
@@ -27,5 +27,19 @@
   "scripts": {
     "start": "homebridge --plugin-path ./",
     "debug": "DEBUG=* homebridge --debug --plugin-path ./"
-  }
+  },
+  "funding": [
+    {
+      "type": "paypal",
+      "url": "https://paypal.me/nitaybz"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/nitaybz"
+    },
+    {
+      "type": "kofi",
+      "url": "https://ko-fi.com/nitaybz"
+    }
+  ]
 }

@@ -36,3 +36,4 @@ node_modules
 seen.db.json
 
 test.js
+.DS_Store
