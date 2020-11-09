@@ -77,7 +77,7 @@
         "key": "devices",
         "type": "array",
         "title": "Network Devices",
-        "orderable": true,
+        "orderable": false,
         "buttonText": "Add Device",
         "items": [
           "devices[].name",
