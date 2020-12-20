@@ -16,6 +16,7 @@ class NetworkPresence {
 		this.PLUGIN_NAME = PLUGIN_NAME
 		this.PLATFORM_NAME = PLATFORM_NAME
 		this.name = config.name || PLATFORM_NAME
+		this.interval = config.interval ? config.interval * 1000 : 10000
 		this.threshold = !config.threshold && config.threshold !== 0 ? 15 : config.threshold
 		this.devicesConfig = config.devices || []
 		this.debug = config.debug || false

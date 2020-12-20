@@ -14,6 +14,14 @@
               "default": false,
               "required": false
           },
+          "interval": {
+              "title": "Polling Interval for New Devices (seconds)",
+              "description": "Time in seconds between status polling",
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 60
+          },
           "threshold": {
               "title": "Disconnect Threshold (minutes)",
               "description": "Time in minutes to wait before updating 'disconnected' status",
@@ -70,6 +78,9 @@
       }
   },
     "layout": [
+      {
+        "key": "interval"
+      },
       {
         "key": "threshold"
       },

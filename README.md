@@ -43,6 +43,7 @@ If you don't use Homebridge UI or HOOBS, keep reading:
 "platforms": [
     {
         "platform": "NetworkPresence",
+        "interval": 10,
         "threshold": 15,
         "devices": [ 
             {
@@ -68,7 +69,8 @@ If you don't use Homebridge UI or HOOBS, keep reading:
 |             Parameter            |                       Description                       |  Default |   type   |
 | -------------------------------- | ------------------------------------------------------- |:--------:|:--------:|:--------:|
 | `platform`  | always `"NetworkPresence"` |     -    |  String  |
-| `threshold`  |  Time in minutes to wait before updating 'disconnected' status. important for not spamming your notifications or wrongly activating automation because the device has gone from the network for short time.   |  `15` |  Integer |
+| `interval`  |  Time in seconds between status polling for connected devices   |  `10` |  Integer |
+| `threshold`  |  Time in minutes to wait before updating 'disconnected' status. important for not spamming your notifications or wrongly activating automation because the device has gone from the network for short time   |  `15` |  Integer |
 | `debug`       |  When set to `true`, the plugin will produce extra logs for debugging purposes        |  `false` |  Boolean  |
 | **Devices** | List of devices to monitor (with the below information)| | Array|
 | `name`        | Name of the accessory in HomeKit  |         |  String  |

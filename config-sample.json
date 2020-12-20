@@ -2,6 +2,7 @@
     "platforms": [
         {
             "platform": "NetworkPresence",
+            "interval": 10,
             "threshold": 15,
             "devices": [ 
                 {
