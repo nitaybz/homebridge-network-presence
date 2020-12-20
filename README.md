@@ -45,6 +45,7 @@ If you don't use Homebridge UI or HOOBS, keep reading:
         "platform": "NetworkPresence",
         "interval": 10,
         "threshold": 15,
+        "anyoneSensor": true,
         "devices": [ 
             {
                 "name": "my iPhone",
@@ -71,6 +72,7 @@ If you don't use Homebridge UI or HOOBS, keep reading:
 | `platform`  | always `"NetworkPresence"` |     -    |  String  |
 | `interval`  |  Time in seconds between status polling for connected devices   |  `10` |  Integer |
 | `threshold`  |  Time in minutes to wait before updating 'disconnected' status. important for not spamming your notifications or wrongly activating automation because the device has gone from the network for short time   |  `15` |  Integer |
+| `anyoneSensor`       |  When set to `true`, the plugin will create extra accessory named "Anyone" to represent if ANY of the devices is detected        |  `false` |  Boolean  |
 | `debug`       |  When set to `true`, the plugin will produce extra logs for debugging purposes        |  `false` |  Boolean  |
 | **Devices** | List of devices to monitor (with the below information)| | Array|
 | `name`        | Name of the accessory in HomeKit  |         |  String  |

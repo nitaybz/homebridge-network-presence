@@ -31,6 +31,13 @@
               "minimum": 0,
               "maximum": 60
           },
+          "anyoneSensor": {
+              "title": "Enable Anyone Sensor",
+              "description": "When checked, the plugin will create extra accessory named \"Anyone\" to represent if ANY of the devices is detected",
+              "type": "boolean",
+              "default": false,
+              "required": false
+          },
           "devices": {
               "type": "array",
               "items": {
@@ -83,6 +90,9 @@
       },
       {
         "key": "threshold"
+      },
+      {
+        "key": "anyoneSensor"
       },
       {
         "key": "devices",

@@ -4,6 +4,7 @@
             "platform": "NetworkPresence",
             "interval": 10,
             "threshold": 15,
+            "anyoneSensor": true,
             "devices": [ 
                 {
                     "name": "my iPhone",

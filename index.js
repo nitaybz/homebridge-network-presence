@@ -18,6 +18,7 @@ class NetworkPresence {
 		this.name = config.name || PLATFORM_NAME
 		this.interval = config.interval ? config.interval * 1000 : 10000
 		this.threshold = !config.threshold && config.threshold !== 0 ? 15 : config.threshold
+		this.anyoneSensor = config.anyoneSensor
 		this.devicesConfig = config.devices || []
 		this.debug = config.debug || false
 
