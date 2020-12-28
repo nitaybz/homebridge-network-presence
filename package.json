@@ -16,13 +16,11 @@
     "url": "https://github.com/nitaybz/homebridge-network-presence/issues"
   },
   "engines": {
-    "node": ">=0.12.0",
-    "homebridge": ">=0.2.0"
+    "node": ">=10.17.0",
+    "homebridge": ">=0.4.4"
   },
   "dependencies": {
-    "bluebird": "^3.7.2",
-    "local-devices": "^3.1.0",
-    "ping": "^0.1.10"
+    "local-devices": "^3.1.0"
   },
   "scripts": {
     "start": "homebridge --plugin-path ./",
