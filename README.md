@@ -7,7 +7,7 @@
 [![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins) [![Homebridge Discord](https://img.shields.io/discord/432663330281226270?color=728ED5&logo=discord&label=discord)](https://discord.gg/7DyabQ6)<br>
 [![certified-hoobs-plugin](https://badgen.net/badge/HOOBS/Certified/yellow)](https://plugins.hoobs.org?ref=10876) [![hoobs-support](https://badgen.net/badge/HOOBS/Support/yellow)](https://support.hoobs.org?ref=10876)
 
-[Homebridge](https://github.com/nfarina/homebridge) plugin that provides occupancy sensors for devices presence in your network
+[Homebridge](https://github.com/nfarina/homebridge) plugin that provides occupancy sensors for devices presence on your network based on mac address or IP.
 
 ### Requirements
 
@@ -24,14 +24,11 @@ I created this plugin due to the lack of updated, supported and maintained plugi
 
 With this plugin you can easily configure devices to monitor based on their mac or ip address.
 
-
 # Installation
 
-
-<!-- This plugin is HomeBridge verified and [HOOBS](https://hoobs.org/?ref=10876) certified and can be easily installed and configured through their UI. -->
+This plugin is HomeBridge verified and [HOOBS](https://hoobs.org/?ref=10876) certified and can be easily installed and configured through their UI.
 
 If you don't use Homebridge UI or HOOBS, keep reading:
-
 
 1. Install homebridge using: `sudo npm install -g homebridge --unsafe-perm`
 2. Install this plugin using: `sudo npm install -g homebridge-network-presence`
