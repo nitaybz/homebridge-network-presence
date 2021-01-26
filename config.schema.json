@@ -40,7 +40,7 @@
           },
           "addressRange": {
               "title": "Address Range",
-              "description": "Define the address range of your devices to speed up discovery (e.g. \"10.0.0.0/24\")",
+              "description": "Define the address range of your devices to speed up discovery (e.g. \"10.0.0.0/24\", \"10.0.0.1-10.0.0.30\")",
               "type": "string",
               "default": "",
               "required": false

@@ -22,7 +22,7 @@ This plugin was inspired by the old [homebridge-people](https://github.com/PeteL
 
 I created this plugin due to the lack of updated, supported and maintained plugin to check devices on your current network.
 
-With this plugin you can easily configure devices to monitor based on their mac or ip address.
+With this plugin you can easily configure devices to monitor based on their mac address, ip address or hostname.
 
 # Installation
 
@@ -42,6 +42,7 @@ If you don't use Homebridge UI or HOOBS, keep reading:
         "platform": "NetworkPresence",
         "interval": 10,
         "threshold": 15,
+        "addressRange": "10.0.0.1-10.0.0.120",
         "anyoneSensor": true,
         "devices": [ 
             {
@@ -52,6 +53,10 @@ If you don't use Homebridge UI or HOOBS, keep reading:
             {
                 "name": "my iPad",
                 "ip": "10.0.0.142"
+            },
+            {
+                "name": "my Apple Watch",
+                "hostname": "joes-applewatch.local"
             }
 
         ],
@@ -69,12 +74,14 @@ If you don't use Homebridge UI or HOOBS, keep reading:
 | `platform`  | always `"NetworkPresence"` |     -    |  String  |
 | `interval`  |  Time in seconds between status polling for connected devices   |  `10` |  Integer |
 | `threshold`  |  Time in minutes to wait before updating 'disconnected' status. important for not spamming your notifications or wrongly activating automation because the device has gone from the network for short time   |  `15` |  Integer |
+| `addressRange`  |  (Optional) Define the address range of your devices to speed up discovery (e.g. "10.0.0.0/24", "10.0.0.1-10.0.0.30")   |   -   |  String |
 | `anyoneSensor`       |  When set to `true`, the plugin will create extra accessory named "Anyone" to represent if ANY of the devices is detected        |  `false` |  Boolean  |
 | `debug`       |  When set to `true`, the plugin will produce extra logs for debugging purposes        |  `false` |  Boolean  |
 | **Devices** | List of devices to monitor (with the below information)| | Array|
 | `name`        | Name of the accessory in HomeKit  |         |  String  |
-| `mac`        | Mac Address of the device e.g. `cc:29:f5:3b:a2:f2` (can use `ip` instead) |         |  String  |
-| `ip`        | ip Address of the device (can use `mac` instead) |         |  String  |
+| `mac`        | Mac Address of the device e.g. `cc:29:f5:3b:a2:f2` (can use `ip` or `hostname` instead) |         |  String  |
+| `ip`        | ip Address of the device (can use `mac` or `hostname` instead) |         |  String  |
+| `hostname`        | Hostname of the device (can use `mac` or `ip` instead) |         |  String  |
 | `threshold`  | device disconnect threshold (overrides platform threshold)   |  `15` |  Integer |
 
 ## Issues & Debug
