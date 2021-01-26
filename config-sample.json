@@ -5,6 +5,7 @@
             "interval": 10,
             "threshold": 15,
             "anyoneSensor": true,
+            "addressRange": "10.0.0.0/24",
             "devices": [ 
                 {
                     "name": "my iPhone",
