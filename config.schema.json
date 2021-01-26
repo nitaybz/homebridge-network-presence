@@ -59,6 +59,10 @@
                       "title": "Device IP Address",
                       "type": "string"
                   },
+                  "hostname": {
+                      "title": "Device Hostname",
+                      "type": "string"
+                  },
                   "threshold": {
                       "title": "Disconnect Threshold (minutes)",
                       "description": "Time in minutes to wait before updating 'disconnected' status",
@@ -77,6 +81,11 @@
                     {
                         "required": [
                             "ip"
+                        ]
+                    },
+                    {
+                        "required": [
+                            "hostname"
                         ]
                     }
                   ]
@@ -104,6 +113,7 @@
           "devices[].name",
           "devices[].mac",
           "devices[].ip",
+          "devices[].hostname",
           "devices[].threshold"
         ]
       },
