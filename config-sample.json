@@ -5,6 +5,7 @@
             "interval": 10,
             "threshold": 15,
             "anyoneSensor": true,
+            "addressRange": "10.0.0.0/24",
             "devices": [ 
                 {
                     "name": "my iPhone",
@@ -14,6 +15,10 @@
                 {
                     "name": "my iPad",
                     "ip": "10.0.0.142"
+                },
+                {
+                    "name": "my Apple Watch",
+                    "hostname": "joes-applewatch.local"
                 }
 
             ],

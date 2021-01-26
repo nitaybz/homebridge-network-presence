@@ -21,6 +21,7 @@ class NetworkPresence {
 		this.anyoneSensor = config.anyoneSensor
 		this.devicesConfig = config.devices || []
 		this.debug = config.debug || false
+		this.range = config.addressRange || ''
 
 		
 		// define debug method to output debug logs when enabled in the config
